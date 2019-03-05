@@ -44,10 +44,10 @@ export default class App extends React.Component {
 
   calculate = () => {
     const {lastTwo} = this.state;
-    const r = parseInt(this.state.resistance);
-    const v = parseInt(this.state.voltage);
-    const i = parseInt(this.state.current);
-    const p = parseInt(this.state.power);
+    const r = Number(this.state.resistance);
+    const v = Number(this.state.voltage);
+    const i = Number(this.state.current);
+    const p = Number(this.state.power);
     const resistance = lastTwo.includes("resistance")
     const voltage = lastTwo.includes("voltage")
     const current = lastTwo.includes("current")
@@ -106,29 +106,33 @@ export default class App extends React.Component {
   }
 
   render() {
-    const {buttonDisable} = this.state
+    const {buttonDisable, lastTwo} = this.state
+    const resistance = lastTwo.includes("resistance") ? "green" : "black";
+    const voltage = lastTwo.includes("voltage") ? "green" : "black";
+    const current = lastTwo.includes("current") ? "green" : "black";
+    const power = lastTwo.includes("power") ? "green" : "black";
 
     return (
       <KeyboardAvoidingView style={styles.container} >
         <Text style={styles.head}>Ohm's Law Calculator</Text>
         <View style={styles.boxes}>
           <View style={styles.smallerBox}>
-            <Text>Resistance (Ohms): </Text>
-            <TextInput style={styles.input} value={this.state.resistance} onChangeText={(text)=>this.handleInput('resistance', text)}/>
+            <Text style={{color: resistance}}>Resistance (Ohms): </Text>
+            <TextInput selectTextOnFocus={true} keyboardType="numeric" style={styles.input} value={this.state.resistance} onChangeText={(text)=>this.handleInput('resistance', text)}/>
           </View>
           <View style={styles.smallerBox}>
-            <Text>Voltage (Volts): </Text>
-            <TextInput style={styles.input} value={this.state.voltage} onChangeText={(text)=>this.handleInput('voltage', text)}/>
+            <Text style={{color: voltage}}>Voltage (Volts): </Text>
+            <TextInput selectTextOnFocus={true} keyboardType="numeric" style={styles.input} value={this.state.voltage} onChangeText={(text)=>this.handleInput('voltage', text)}/>
           </View>
         </View>
         <View style={styles.boxes}>
           <View style={styles.smallerBox}>
-            <Text>Current (Amperes): </Text>
-            <TextInput style={styles.input} value={this.state.current} onChangeText={(text)=>this.handleInput('current', text)}/>
+            <Text style={{color: current}}>Current (Amperes): </Text>
+            <TextInput selectTextOnFocus={true} keyboardType="numeric" style={styles.input} value={this.state.current} onChangeText={(text)=>this.handleInput('current', text)}/>
           </View>
           <View style={styles.smallerBox}>
-            <Text>Wattage (Watts): </Text>
-            <TextInput style={styles.input} value={this.state.power} onChangeText={(text)=>this.handleInput('power', text)}/>
+            <Text style={{color: power}}>Wattage (Watts): </Text>
+            <TextInput selectTextOnFocus={true} keyboardType="numeric" style={styles.input} value={this.state.power} onChangeText={(text)=>this.handleInput('power', text)}/>
           </View>
         </View>
         <View style={styles.boxes}>
