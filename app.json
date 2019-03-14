@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": " Electronics Calculator",
-    "slug": "electronics",
+    "slug": "electronics_calc",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -10,9 +10,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/resistor.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/resistor.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,6 +24,14 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "description": "A small app for Ohm's Law calculations.",
+    "android": {
+      "package": "bfojas.github.io",
+      "versionCode": 2,
+      "permissions": [
+        "WAKE_LOCK"
+      ]
     }
   }
 }
